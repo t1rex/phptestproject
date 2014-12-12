@@ -1,0 +1,14 @@
+.header{
+    height: 150px;
+    background-color: #ccc;
+}
+
+.footer{
+    height: 100px;
+    background-color: #666;
+}
+
+.content-area{
+    height: 800px;
+    background-color: #ccc;
+}
