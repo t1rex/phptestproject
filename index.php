@@ -1,3 +1,3 @@
 <?php
-include 'applications/core.php';
-include 'layouts/start.html';
+include 'app/core.php';
+include 'layouts/start.php';

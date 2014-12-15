@@ -2,14 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: nazar
- * Date: 11.12.14
- * Time: 15:17
+ * Date: 12.12.14
+ * Time: 14:00
  */
-
-
-
-
-
 
 abstract class ConnectToDB
 {
@@ -19,7 +14,7 @@ abstract class ConnectToDB
     protected $dsn = 'mysql:dbname=movie;host=localhost';
     public function __construct()
     {
-        if ($this->dbh === null){
+        if ($this->dbh === null) {
             try {
                 $this->dbh = new PDO($this->dsn, $this->user, $this->pass);
             } catch (PDOException $e) {
