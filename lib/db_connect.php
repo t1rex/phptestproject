@@ -6,6 +6,14 @@
  * Time: 14:00
  */
 
+/**
+ * Class ConnectToDB
+ *
+ * abstract class that connected to database
+ *
+ *@author Nazar
+ *
+ */
 abstract class ConnectToDB
 {
     protected $dbh = null;

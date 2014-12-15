@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks -MultiViews
+    RewriteEngine On
+
+#    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+    # Redirect all /img/abc to /img/index.php/abc
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteRule ^img/(.*) img/index.php/$1 [L]
+
+    # redirect all directories to root using PATH variables
+    # Ex. /abc/def/ redirects to /index.php/abc/def/
+#    RewriteCond %{REQUEST_URI} !=/server-status
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (.*) index.php/$1 [L]
+</IfModule>

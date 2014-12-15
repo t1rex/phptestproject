@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>First Page</title>
 
-    <link href="../css/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../css/layout.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="../web/css/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../web/css/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../web/css/layout.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -29,7 +29,7 @@
     <div class="header page-header">
         <h1 class="text-primary">First Title Of Page</h1>
         <a href="second.php">Second page</a> <br/>
-        <a href="../index.php">MAIN</a>
+        <a href="../web/index.php">MAIN</a>
     </div>
 <!--    =======================================  -->
     <div class="content">
