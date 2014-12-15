@@ -26,18 +26,19 @@ class DataBaseHandler extends ConnectToDB
                 HAVING age BETWEEN 40 AND 60;";
 
         $res=$this->dbh->query($sql);
-        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $this->data[] = $row;
-        }
+        $this->mobilizeTable($res);
         return $this->data;
     }
 
     public function getActorInfo($StudioTitle=null)
     {
-        $title = 'Odessa Film Studio them. Dovzhenko';
+
         if (isset($StudioTitle)) {
             $title = $StudioTitle;
+        } else {
+            $title = 'Odessa Film Studio them. Dovzhenko';
         }
+
         $this->data = [];
         $sql = "SELECT s.title AS title, CONCAT(a.`name`,' ', a.`surname`) AS full_name, COUNT(wa.film_id) as count_film
                 FROM actors AS a
@@ -47,9 +48,7 @@ class DataBaseHandler extends ConnectToDB
                 GROUP BY a.id";
 
         $res=$this->dbh->query($sql);
-        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $this->data[] = $row;
-        }
+        $this->mobilizeTable($res);
         return $this->data;
     }
 
@@ -61,9 +60,7 @@ class DataBaseHandler extends ConnectToDB
                 HAVING count(surname) < 2";
 
         $res=$this->dbh->query($sql);
-        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $this->data[] = $row;
-        }
+        $this->mobilizeTable($res);
         return $this->data;
     }
 
@@ -80,9 +77,7 @@ class DataBaseHandler extends ConnectToDB
                 HAVING old < 10";
 
         $res=$this->dbh->query($sql);
-        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $this->data[] = $row;
-        }
+        $this->mobilizeTable($res);
         return $this->data;
     }
 
@@ -92,9 +87,7 @@ class DataBaseHandler extends ConnectToDB
         $sql = "SELECT `title` FROM `studio`";
 
         $res=$this->dbh->query($sql);
-        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
-            $this->data[] = $row;
-        }
+        $this->mobilizeTable($res);
         return $this->data;
     }
 
@@ -106,5 +99,13 @@ class DataBaseHandler extends ConnectToDB
         {
             echo 'data is null';
         }
+    }
+
+    private function mobilizeTable($res)
+    {
+        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
+            $this->data[] = $row;
+        }
+        return $this->data;
     }
 }
