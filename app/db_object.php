@@ -32,14 +32,18 @@ class DataBaseHandler extends ConnectToDB
         return $this->data;
     }
 
-    public function getActorInfo()
+    public function getActorInfo($StudioTitle=null)
     {
+        $title = 'Odessa Film Studio them. Dovzhenko';
+        if (isset($StudioTitle)) {
+            $title = $StudioTitle;
+        }
         $this->data = [];
         $sql = "SELECT s.title AS title, CONCAT(a.`name`,' ', a.`surname`) AS full_name, COUNT(wa.film_id) as count_film
                 FROM actors AS a
                     INNER JOIN work_actors AS wa ON a.id = wa.actor_id
                     INNER JOIN studio AS s ON s.id = wa.stud_id
-                WHERE s.title = 'Odessa Film Studio them. Dovzhenko'
+                WHERE s.title LIKE '" .$title. "%'
                 GROUP BY a.id";
 
         $res=$this->dbh->query($sql);
@@ -74,6 +78,18 @@ class DataBaseHandler extends ConnectToDB
                     ON (f.id = wa.film_id)
                 GROUP BY studio_title
                 HAVING old < 10";
+
+        $res=$this->dbh->query($sql);
+        while ($row = $res->fetch(PDO::FETCH_ASSOC)){
+            $this->data[] = $row;
+        }
+        return $this->data;
+    }
+
+    public function getTitlesOfStudio()
+    {
+        $this->data = [];
+        $sql = "SELECT `title` FROM `studio`";
 
         $res=$this->dbh->query($sql);
         while ($row = $res->fetch(PDO::FETCH_ASSOC)){
