@@ -166,7 +166,7 @@ class SplClassLoader
     {
         $file = $includePath . DIRECTORY_SEPARATOR . $fileName;
         if (file_exists($file)) {
-            require $includePath . DIRECTORY_SEPARATOR . $fileName;
+            require $includePath . DIRECTORY_SEPARATOR . $fileName; //$file ????????????
             return true;
         } else {
             return false;

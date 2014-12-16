@@ -3,7 +3,7 @@ namespace Dv\View;
 
 class Layout
 {
-    protected $baseTemplate = 'base.phtml';
+    protected $baseTemplate = 'index/index.phtml';
 
     protected $rootDir = '';
 
@@ -46,5 +46,7 @@ class Layout
     }
 
     protected function getTemplatePath()
-    {}
+    {
+
+    }
 }

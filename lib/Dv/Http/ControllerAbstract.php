@@ -16,6 +16,7 @@ abstract class ControllerAbstract
         if (!isset($this->layout)) {
             $layout = new Layout();
             Kernel::$container->layout = $layout;
+            $this->layout = $layout;
         }
         return $this->layout;
     }

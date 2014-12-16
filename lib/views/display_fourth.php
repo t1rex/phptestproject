@@ -3,7 +3,7 @@
     echo '<h1>'.$title.'</h1>';
     echo '<table class="table">
             <tr>
-                <td>>Studio title</td>
+                <td>Studio title</td>
                 <td>Count film</td>
                 <td>Count pays</td>
                 <td>Amount of fess</td>

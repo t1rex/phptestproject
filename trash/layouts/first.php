@@ -43,7 +43,7 @@
 
         $formTitle = 'Select studio';
         $formViewTitle = 'form';
-        $titles = array();
+//        $titles = array();
         $dbh->getTitlesOfStudio();
         $dbh->displayData($formTitle, $formViewTitle);
 

@@ -10,8 +10,8 @@
     <div class="page-header">
         <h1 class="text-primary">phptestproject</h1>
         <div class="nav-justified">
-            <a href="/layouts/first.php" class="navbar-link">First page</a>
-            <a href="/layouts/second.php" class="navbar-link">Second page</a>
+            <a href="/trash/layouts/first.php" class="navbar-link">First page</a>
+            <a href="/trash/layouts/second.php" class="navbar-link">Second page</a>
         </div>
 
     </div>
