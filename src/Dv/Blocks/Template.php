@@ -1,6 +1,6 @@
 <?php
 
-namespace Dv\Blocks\Page;
+namespace Dv\Blocks;
 
 use Dv\View\BlockAbstract;
 

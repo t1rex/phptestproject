@@ -1,5 +1,4 @@
-<p>
-    <?php
+   <?php
     echo '<h1>'.$title.'</h1>';
     echo '<table class="table">
             <tr><td>Full name</td><td>Fees</td><td>Age</td></tr>';
@@ -10,4 +9,3 @@
     }
     ?>
 </table>
-</p>

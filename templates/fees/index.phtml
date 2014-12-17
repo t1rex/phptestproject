@@ -18,18 +18,18 @@
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-    <body>
-        <div class="container">
+<body>
+<div class="container">
 
-            <div class="row">
-                <?php echo $this->renderBlock('Dv\Blocks\Page\Menu'); ?>
-            </div>
-            <div class="row">
-                <?php echo $this->renderBlock('Dv\Blocks\Page\Content'); ?>
-            </div>
-            <div class="row container">
-                <?php echo $this->renderBlock('Dv\Blocks\Page\Footer'); ?>
-            </div>
-        </div>
-    </body>
+    <div class="row">
+        <?php echo $this->renderBlock('Dv\Blocks\Fees\Header'); ?>
+    </div>
+    <div class="row content-area">
+        <?php echo $this->renderBlock('Dv\Blocks\Fees\FeesTable') ?>
+    </div>
+    <div class="row container">
+        <?php echo $this->renderBlock('Dv\Blocks\Page\Footer'); ?>
+    </div>
+</div>
+</body>
 </html>

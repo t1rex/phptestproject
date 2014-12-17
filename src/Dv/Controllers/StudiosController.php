@@ -9,13 +9,9 @@ class StudiosController extends ControllerAbstract
     public  function indexAction()
     {
         $layout = $this->getLayout();
-//        $layout->setBaseTemplate('secondTemplate.phtml');
+
+        $layout->setBaseTemplate('studios/index.phtml');    //??????????
+
         $this->getResponse()->setBody($layout->render());
-
-//        $html = $layout->render();
-//        header('Content-Type: text/html;');
-//        headers_sent();
-//        echo $html;
-
     }
 }

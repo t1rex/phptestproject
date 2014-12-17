@@ -2,6 +2,7 @@
 namespace Dv\Http;
 
 use Dv\Core\Kernel;
+use Dv\Db\DataBaseHandler;
 use Dv\Http\Response;
 use Dv\View\Layout;
 
@@ -16,6 +17,8 @@ abstract class ControllerAbstract
     /**
      * @return Layout
      */
+    protected $dbh;
+
     protected function getLayout()
     {
         if (!isset($this->layout)) {
