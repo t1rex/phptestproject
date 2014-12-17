@@ -1,7 +1,6 @@
 <?php
 namespace Dv\Http;
 
-
 use Dv\Core\Kernel;
 
 class Router
@@ -13,12 +12,14 @@ class Router
         $pathInfo = explode('/', trim($request->getPath(), '/'));
         $controllerName = $pathInfo[0] ? $pathInfo[0] : 'index';
         $controllerClass = 'Dv\Controllers\\' . ucfirst($controllerName) . 'Controller';
+        /** @var \Dv\Http\ControllerAbstract $controller */
         $controller = new $controllerClass();
 
         $action = isset($pathInfo[1]) ? $pathInfo[1] : 'index';
         $action .= 'Action';
         if (method_exists($controller, $action)) {
             $controller->$action();
+            $controller->postDispatch();
         } else {
             throw new \Exception("Action ' $action' not found in controller '$controllerClass'");
         }

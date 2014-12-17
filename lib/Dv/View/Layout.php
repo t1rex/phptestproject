@@ -3,9 +3,10 @@ namespace Dv\View;
 
 class Layout
 {
-    protected $baseTemplate = 'index/index.phtml';
+    protected $baseTemplate = 'base.phtml';
 
     protected $rootDir = '';
+
 
     public function __construct()
     {
@@ -37,16 +38,31 @@ class Layout
 
     protected function renderControllerActionTemplate()
     {
+//        echo 'test12';
+        echo $this->baseTemplate;
         // по имени контроллера и экшна мы можем достать блок и вызвать у него метод render()
     }
 
-    protected function renderBlock()
+    /**
+     * @param \Dv\view\BlockAbstract $blockClass
+     * @param array $arguments
+     * @return BlockAbstract
+     */
+    public function getBlock($blockClass, $arguments = array())
     {
-
+        return new $blockClass($arguments);
     }
 
-    protected function getTemplatePath()
+    public function renderBlock($blockClass)
     {
+        return $this->getBlock($blockClass)->render();
+    }
 
+    /**
+     * @return string
+     */
+    public function getRootDir()
+    {
+        return $this->rootDir;
     }
 }

@@ -1,7 +1,7 @@
 <p>
     <?php
     echo '<h1>'.$title.'</h1>';
-    echo '<table class="table table-for-ajax">
+    echo '<table class="table">
             <tr><td>title</td><td>Full name</td><td>Count film</td></tr>';
     foreach($this->data as $row)
     {

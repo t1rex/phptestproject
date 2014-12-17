@@ -2,7 +2,7 @@
     echo '<h1>'.$title.'</h1>';
 
 
-    echo '<form action="../app/ajax.php" method="post">
+    echo '<form action="../DV/Models/ajax.php" method="post" class="form1">
         <p><select size="4" multiple name="studio[]">';
 
     foreach($this->data as $row)
@@ -11,7 +11,6 @@
     }
 
     echo '</select></p>
-        <p><input type="submit" value="Submit" class="submit"></p>
     </form>';
 
 

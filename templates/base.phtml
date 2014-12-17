@@ -1,3 +1,4 @@
+<?php /** @var \Dv\View\Layout $this */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +19,14 @@
     <![endif]-->
 </head>
 <body>
-    <h1>Hello, world!</h1>
-    <a href="/first">FIRST PAGE</a><br/>
-    <a href="/second">SECOND PAGE</a><br/>
-
-    <?php echo $this->renderControllerActionTemplate(); ?>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!--<script src="web/twitter-bootstrap/js/bootstrap.min.js"></script>-->
+    <?php echo $this->renderBlock('Dv\Blocks\Page\Menu'); ?>
+<!--    <div class="container">-->
+<!--        --><?php
+//        echo $this->renderControllerActionTemplate();
+//        ?>
+<!--    </div>-->
+<!--    <div class="navbar-fixed-bottom footer">-->
+<!---->
+<!--    </div>-->
 </body>
 </html>

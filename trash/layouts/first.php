@@ -7,11 +7,12 @@
     <link href="../web/css/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../web/css/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../web/css/layout.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
             $('form').submit(function(){
+                console.log 'test';
                 res = $.post(
                     $(this).attr('action'), // ссылка куда отправляем данные
                     $(this).serialize(), // данные формы
@@ -22,7 +23,6 @@
                 return false;
             });
         });
-
     </script>
 </head>
 <body>

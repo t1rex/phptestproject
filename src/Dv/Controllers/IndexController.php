@@ -13,13 +13,12 @@ class IndexController extends ControllerAbstract
 {
     public function indexAction()
     {
-//        $request = Kernel::$container->request;
         $layout = $this->getLayout();
-//        $layout->setBaseTemplate('empty.phtml');
-        $html = $layout->render();
-        header('Content-Type: text/html;');
-        headers_sent();
-        echo $html;
+//        $html = $layout->render();
+        $this->getResponse()->setBody($layout->render());
+//        header('Content-Type: text/html;');
+//        headers_sent();
+//        echo $html;
 
         // 1. db connection
         // 2. layout
@@ -35,5 +34,11 @@ class IndexController extends ControllerAbstract
 //        $model->displayFourthQuery();
 
 
+    }
+
+    public function withAjax()
+    {
+        $block = $this->getLayout()->getBlock('sdgdfg');
+        $this->getResponse()->setBody($block->render());
     }
 }
