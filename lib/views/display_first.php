@@ -1,11 +1,16 @@
-   <?php
-    echo '<h1>'.$title.'</h1>';
-    echo '<table class="table">
-            <tr><td>Full name</td><td>Fees</td><td>Age</td></tr>';
-
-    foreach($this->data as $row)
-    {
-        echo '<tr><td>'.$row['full name'].'</td><td>'.$row['fees'].'</td><td>'.$row['age'].'</td></tr>';
-    }
-    ?>
-</table>
+<h1><?php echo $title ?></h1>
+<table class="table">
+    <tr>
+        <td>Full name</td>
+        <td>Fees</td>
+        <td>Age</td>
+    </tr>
+<?php
+    foreach($this->data as $row) : ?>
+        <tr>
+            <td><?php echo $row['full name'] ?></td>
+            <td><?php echo $row['fees'] ?></td>
+            <td><?php echo $row['age'] ?></td>
+        </tr>
+<?php endforeach ?>
+ </table>
