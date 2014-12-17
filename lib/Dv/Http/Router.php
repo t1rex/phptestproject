@@ -5,6 +5,12 @@ use Dv\Core\Kernel;
 
 class Router
 {
+    protected $controllerName = '';
+    protected $actionName = '';
+
+    /**
+     * @throws \Exception
+     */
     public function dispatch()
     {
         $request = new Request();
@@ -15,13 +21,32 @@ class Router
         /** @var \Dv\Http\ControllerAbstract $controller */
         $controller = new $controllerClass();
 
-        $action = isset($pathInfo[1]) ? $pathInfo[1] : 'index';
-        $action .= 'Action';
-        if (method_exists($controller, $action)) {
-            $controller->$action();
+        $actionName = isset($pathInfo[1]) ? $pathInfo[1] : 'index';
+        $this->actionName = $actionName;
+        $actionName .= 'Action';
+        if (method_exists($controller, $actionName)) {
+            $this->controllerName = $controllerName;
+            Kernel::$container->router = $this;
+            $controller->$actionName();
             $controller->postDispatch();
         } else {
-            throw new \Exception("Action ' $action' not found in controller '$controllerClass'");
+            throw new \Exception("Action '$actionName' not found in controller '$controllerClass'");
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getControllerName()
+    {
+        return $this->controllerName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActionName()
+    {
+        return $this->actionName;
     }
 }

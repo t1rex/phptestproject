@@ -1,0 +1,17 @@
+<?php
+    /** @var \Dv\Blocks\Studios\ListStudios $this */
+    $data = $this->getStudiosList();
+?>
+
+<h1>Information about the actors who starred for the studio</h1>
+<form action="/" method="get">
+    <table>
+        <?php foreach ($data as $row): ?>
+            <tr>
+                <td><?php echo $row['title']; ?></td>
+                <td><?php echo $row['full_name']; ?></td>
+                <td><?php echo $row['count_films']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</form>

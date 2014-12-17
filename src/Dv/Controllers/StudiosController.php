@@ -10,8 +10,6 @@ class StudiosController extends ControllerAbstract
     {
         $layout = $this->getLayout();
 
-        $layout->setBaseTemplate('studios/index.phtml');    //??????????
-
-        $this->getResponse()->setBody($layout->render());
+        $this->getResponse()->setBody($layout->render());;
     }
 }

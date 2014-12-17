@@ -26,28 +26,6 @@ class DataBaseHandler extends Connection
         return $this->data;
     }
 
-    public function getActorInfo($StudioTitle=null)
-    {
-
-        if (isset($StudioTitle)) {
-            $title = $StudioTitle;
-        } else {
-            $title = 'Odessa Film Studio them. Dovzhenko';
-        }
-
-        $this->data = [];
-        $sql = "SELECT s.title AS title, CONCAT(a.`name`,' ', a.`surname`) AS full_name, COUNT(wa.film_id) as count_film
-                FROM actors AS a
-                    INNER JOIN work_actors AS wa ON a.id = wa.actor_id
-                    INNER JOIN studio AS s ON s.id = wa.stud_id
-                WHERE s.title LIKE '" .$title. "%'
-                GROUP BY a.id";
-
-        $res=$this->dbh->query($sql);
-        $this->mobilizeTable($res);
-        return $this->data;
-    }
-
     public function getNamesakes()
     {
         $this->data = [];

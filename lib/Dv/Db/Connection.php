@@ -2,28 +2,31 @@
 namespace Dv\Db;
 
 /**
- * Class ConnectToDB
+ * Class Connection
  *
  * abstract class that connected to database
  *
  *@author Nazar
  *
  */
-class Connection
+class Connection extends \PDO
 {
     protected $dbh = null;
     protected $user = 'root';
     protected $pass = '1';
     protected $dsn = 'mysql:dbname=movie;host=localhost';
 
-    public function __construct()
+    /**
+     * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
+     * Creates a PDO instance representing a connection to a database
+     * @link http://php.net/manual/en/pdo.construct.php
+     * @param $dsn
+     * @param $username [optional]
+     * @param $passwd [optional]
+     * @param $options [optional]
+     */
+    public function __construct($dsn = '', $username = '', $passwd = '', $options = array())
     {
-        if ($this->dbh === null) {
-            try {
-                $this->dbh = new \PDO($this->dsn, $this->user, $this->pass);
-            } catch (\PDOException $e) {
-                print "Error: " . $e->getMessage() . "<br/>";
-            }
-        }
+        parent::__construct($this->dsn, $this->user, $this->pass, $options);
     }
 }

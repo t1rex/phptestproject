@@ -21,16 +21,11 @@ class Request
 
     public function getParam()
     {
-
+        return $this->params;
     }
 
     public function getPath()
     {
         return $this->path;
-    }
-
-    public function isPost()
-    {
-
     }
 }
