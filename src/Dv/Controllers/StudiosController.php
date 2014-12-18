@@ -9,7 +9,6 @@ class StudiosController extends ControllerAbstract
     public  function indexAction()
     {
         $layout = $this->getLayout();
-
         $this->getResponse()->setBody($layout->render());;
     }
 }
