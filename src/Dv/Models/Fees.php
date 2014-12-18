@@ -1,22 +1,21 @@
 <?php
 namespace Dv\Models;
 
-use Dv\Db\DataBaseHandler;
+//use Dv\Db\DataBaseHandler;
 use Dv\Db;
 
-class FeesModel
+class Fees extends Db\ModelAbstract
 {
-    protected $DataBaseHandler;
-    public function __construct()
+    public function getFeesList()
     {
-        $this->DataBaseHandler = new DataBaseHandler();
-    }
-
-    public function displayFees()
-    {
-        $QueryTitle = 'Fees of actors between 40 and 60 years old';
-        $firstViewTitle = 'first';
-        $this->DataBaseHandler->getFees();
-        $this->DataBaseHandler->displayData($QueryTitle, $firstViewTitle);
+        $connection = $this->getConnection();
+        $sql = "SELECT CONCAT(a.name, ' ', a.surname) AS `full name`, SUM(w.`fee`) AS 'fees', year(curdate())-year(a.`date_birth`) AS age
+                FROM `work_actors` AS w
+                  INNER JOIN `actors` AS a ON a.id = w.`actor_id`
+                GROUP BY a.name
+                HAVING age BETWEEN 40 AND 60;";
+        $stmt = $connection->prepare($sql);
+        $result = $stmt->fetchAll($connection::FETCH_ASSOC);
+        return $result;
     }
 }

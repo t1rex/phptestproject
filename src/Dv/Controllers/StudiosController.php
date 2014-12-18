@@ -3,7 +3,6 @@ namespace Dv\Controllers;
 
 use Dv\Http\ControllerAbstract;
 
-
 class StudiosController extends ControllerAbstract
 {
     public  function indexAction()

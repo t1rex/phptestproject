@@ -10,5 +10,4 @@ class FeesController extends ControllerAbstract
         $layout = $this->getLayout();
         $this->getResponse()->setBody($layout->render());
     }
-
 }
