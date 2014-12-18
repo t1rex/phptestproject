@@ -1,7 +1,13 @@
-<p>dropDownList.phtml test</p>
-
-
 <?php
-/** @var \Dv\Blocks\Studios\ListStudios $this */
-$data = $this->getStudiosList();
+/** @var \Dv\Blocks\Studios\DropDownList $this */
+$data = $this->getDropDownListStudios();
 ?>
+
+<h3>Select studio</h3>
+<form action="/" method="get">
+    <select size="1" name="list-studio" id="list-studio">
+        <?php foreach($data as $row): ?>
+            <option value="<?php echo $row['title']; ?>"><?php echo $row['title'];?></option>
+        <?php endforeach; ?>
+    </select>
+</form>
