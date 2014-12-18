@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<connection>
+    <hostname>localhost</hostname>
+    <username>nazar</username>
+    <password>1</password>
+    <database>movie</database>
+</connection>

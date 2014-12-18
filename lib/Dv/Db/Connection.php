@@ -4,29 +4,32 @@ namespace Dv\Db;
 /**
  * Class Connection
  *
- * abstract class that connected to database
+ * class that connected to database
  *
  *@author Nazar
  *
  */
 class Connection extends \PDO
 {
-    protected $dbh = null;
-    protected $user = 'root';
-    protected $pass = '1';
-    protected $dsn = 'mysql:dbname=movie;host=localhost';
+    private $host;
+    private $user;
+    private $password;
+    private $database;
+    private $connection;
 
-    /**
-     * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
-     * Creates a PDO instance representing a connection to a database
-     * @link http://php.net/manual/en/pdo.construct.php
-     * @param $dsn
-     * @param $username [optional]
-     * @param $passwd [optional]
-     * @param $options [optional]
-     */
-    public function __construct($dsn = '', $username = '', $passwd = '', $options = array())
+    public function __construct()
     {
-        parent::__construct($this->dsn, $this->user, $this->pass, $options);
+        $connectionParameters = simplexml_load_file(__DIR__."/../../../app/dbconfig.xml");
+        $this->host = $connectionParameters->hostname;
+        $this->user = $connectionParameters->username;
+        $this->password = $connectionParameters->password;
+        $this->database = $connectionParameters->database;
+        try {
+            $this->connection = new \PDO("mysql:host=$this->host;dbname=$this->database", $this->user, $this->password);
+            $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        }
+        catch (\PDOException $e) {
+            echo 'Conection failed: ' . $e->getMessage();
+        }
     }
 }
