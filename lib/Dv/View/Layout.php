@@ -48,7 +48,7 @@ class Layout
      * @param array $arguments
      * @return BlockAbstract
      */
-    public function getBlock($blockClass, $arguments = array())
+    public function getBlock($blockClass, $arguments = null)
     {
         return new $blockClass($arguments);
     }

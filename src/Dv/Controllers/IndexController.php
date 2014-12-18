@@ -17,9 +17,5 @@ class IndexController extends ControllerAbstract
         $this->getResponse()->setBody($layout->render());
     }
 
-//    public function withAjax()
-//    {
-//        $block = $this->getLayout()->getBlock('sdgdfg');
-//        $this->getResponse()->setBody($block->render());
-//    }
+
 }

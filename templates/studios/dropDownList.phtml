@@ -3,11 +3,37 @@
 $data = $this->getDropDownListStudios();
 ?>
 
-<h3>Select studio</h3>
-<form action="/" method="get">
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $form = $('.studios-list'),
+            action = $form.attr('action');
+
+        console.log(action);
+        $('.studios-list select').on('change', function() {
+            var value = $('.studios-list option:selected').attr('value');
+            console.log('change');
+            $.get(
+                action,
+                {
+                    'list-studio': value
+                },
+                onAjaxSuccess
+            );
+
+            function onAjaxSuccess(response)
+            {
+                $('.studio-info').empty().append(response);
+            }
+        })
+    })
+</script>
+
+<form action="studios/listStudioWithAjax" method="get" class="studios-list">
     <select size="1" name="list-studio" id="list-studio">
+        <option disabled selected>select studio</option>
         <?php foreach($data as $row): ?>
             <option value="<?php echo $row['title']; ?>"><?php echo $row['title'];?></option>
         <?php endforeach; ?>
     </select>
+<!--    <input type="submit" value="go"/>-->
 </form>

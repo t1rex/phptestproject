@@ -2,9 +2,14 @@
     /** @var \Dv\Blocks\Studios\ListStudios $this */
     $data = $this->getStudiosList();
 ?>
-
-<h1>Information about the actors who starred for the studio</h1>
+<div class="studio-info">
+    <h1>Information about the actors who starred for the studio</h1>
     <table class="table">
+        <tr>
+            <td>Title</td>
+            <td>Full name</td>
+            <td>Count films</td>
+        </tr>
         <?php foreach ($data as $row): ?>
             <tr>
                 <td><?php echo $row['title']; ?></td>
@@ -13,4 +18,5 @@
             </tr>
         <?php endforeach; ?>
     </table>
+</div>
 
