@@ -2,9 +2,9 @@
 namespace Dv\Models;
 
 //use Dv\Db\DataBaseHandler;
-use Dv\Db;
+use Dv\Db\ModelAbstract;
 
-class Fees extends Db\ModelAbstract
+class Fees extends ModelAbstract
 {
     public function getFeesList()
     {
@@ -15,6 +15,8 @@ class Fees extends Db\ModelAbstract
                 GROUP BY a.name
                 HAVING age BETWEEN 40 AND 60;";
         $stmt = $connection->prepare($sql);
+        $stmt->execute();
+
         $result = $stmt->fetchAll($connection::FETCH_ASSOC);
         return $result;
     }
