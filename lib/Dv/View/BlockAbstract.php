@@ -15,11 +15,6 @@ abstract class BlockAbstract
         return Kernel::$container->layout;
     }
 
-//    protected function getTemplate()
-//    {
-//
-//    }
-
     /**
      * @param string $template
      * @return $this

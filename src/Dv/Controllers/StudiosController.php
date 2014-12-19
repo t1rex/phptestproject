@@ -15,7 +15,6 @@ class StudiosController extends ControllerAbstract
     {
         $studioTitle = $_GET['list-studio'];
         $block = $this->getLayout()->getBlock('Dv\Blocks\Studios\ListStudios', $studioTitle);
-//        $layout = $this->getLayout('studio/list');
         $this->getResponse()->setBody($block->render());
     }
 }

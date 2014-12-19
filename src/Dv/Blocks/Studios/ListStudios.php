@@ -15,13 +15,10 @@ class ListStudios extends BlockAbstract
             $this->arguments = $arguments;
         }
     }
+
     public function getStudiosList()
     {
         $model = new Studio();
-        if (isset($this->arguments)) {
             return $model->getActorInfo($this->arguments);
-        } else {
-            return $model->getActorInfo();
-        }
     }
 }

@@ -5,8 +5,9 @@ use Dv\Db\ModelAbstract;
 
 class Studio extends ModelAbstract
 {
-    public function getActorInfo($studioTitle = 'Odessa Film Studio them. Dovzhenko')
+    public function getActorInfo($studioTitle = null)
     {
+        $studioTitle = $studioTitle ? $studioTitle : 'Odessa Film Studio them. Dovzhenko';
         $connection = $this->getConnection();
         $sql = "SELECT s.title AS title, CONCAT(a.`name`,' ', a.`surname`) AS full_name, COUNT(wa.film_id) as count_films
                 FROM actors AS a

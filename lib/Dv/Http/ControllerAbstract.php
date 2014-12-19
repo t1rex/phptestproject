@@ -2,8 +2,6 @@
 namespace Dv\Http;
 
 use Dv\Core\Kernel;
-use Dv\Db\DataBaseHandler;
-use Dv\Http\Response;
 use Dv\View\Layout;
 
 abstract class ControllerAbstract

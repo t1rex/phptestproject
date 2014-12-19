@@ -1,17 +1,8 @@
 <?php
 namespace Dv\Db;
 
-/**
- * Class Connection
- *
- * abstract class that connected to database
- *
- *@author Nazar
- *
- */
 class Connection extends \PDO
 {
-    protected $dbh = null;
     protected $user = 'root';
     protected $pass = '1';
     protected $dsn = 'mysql:dbname=movie;host=localhost';

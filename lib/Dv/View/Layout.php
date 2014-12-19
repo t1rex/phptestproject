@@ -7,7 +7,6 @@ class Layout
 
     protected $rootDir = '';
 
-
     public function __construct()
     {
         $this->rootDir = $_SERVER['DOCUMENT_ROOT'] . '..' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
@@ -34,13 +33,6 @@ class Layout
     public function setBaseTemplate($baseTemplate)
     {
         $this->baseTemplate = $baseTemplate;
-    }
-
-    protected function renderControllerActionTemplate()
-    {
-//        echo 'test12';
-        echo $this->baseTemplate;
-        // по имени контроллера и экшна мы можем достать блок и вызвать у него метод render()
     }
 
     /**
